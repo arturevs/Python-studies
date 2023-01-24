@@ -1,6 +1,3 @@
-
-
-
 name = input("Your name: ")
 weight = float(input("Your weight in kilos: "))
 height = input("Your height in meters, like 1.75: ")
