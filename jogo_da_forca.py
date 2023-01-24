@@ -1,21 +1,23 @@
-resposta = "banana"
-tamanho = len(resposta)
-list1 = []
-palavra = tamanho * "*"
-list1[:0] = palavra
-vidas = 4
-while vidas > 0:
-  letra = input("Digite uma letra:")
-  if letra in resposta:
-    for i in range(tamanho):
-      if list1[i] == letra:
-        list1
-    print(list1)
+palavra_teste = ["b","a","n","a","n","a"]
+palavra_resposta = ["*","*","*","*","*","*"]
+erros = 0
+while True:
+  if palavra_resposta == palavra_teste:
+    print("você venceu!!!")
+    break
+  elif erros == 5:
+    print("você perdeu!!!")
+    break
+  entrada = (input("Digite a letra: "))
+  if len(entrada) > 1:
+    print("Digite apenas uma letra.")
+    continue
+  if entrada in palavra_teste:
+    for i in range(len(palavra_teste)):
+      if palavra_teste[i] == entrada:
+        palavra_resposta.pop(i)
+        palavra_resposta.insert(i, entrada)
+    print(*palavra_resposta)
   else:
-    vidas -= 1
-  
-string = ''.join(list1)
-if resposta == string:
-  print("Você ganhou!")
-if vidas == 0:
-  print("Você perdeu!")
+    print(f"{entrada} não está na palavra")
+    erros += 1
